@@ -88,7 +88,7 @@ public class SaxBookParser implements BookParser{
 		public List<Book> getBooks() {
 			return books;
 		}
-		
+		//第一个执行方法
 		@Override
 		public void startDocument() throws SAXException {
 			super.startDocument();
@@ -96,6 +96,7 @@ public class SaxBookParser implements BookParser{
 			builder = new StringBuilder();
 		}
 
+		//第二个执行方法
 		@Override
 		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 			super.startElement(uri, localName, qName, attributes);
@@ -105,12 +106,13 @@ public class SaxBookParser implements BookParser{
 			builder.setLength(0);	//将字符长度设置为0 以便重新开始读取元素内的字符节点
 		}
 		
+		//第三个执行方法
 		@Override
 		public void characters(char[] ch, int start, int length) throws SAXException {
 			super.characters(ch, start, length);
 			builder.append(ch, start, length);	//将读取的字符数组追加到builder中
 		}
-		
+		//若一个节点，比如<name>michael</name>,在执行完characters后会执行该方法。
 		@Override
 		public void endElement(String uri, String localName, String qName) throws SAXException {
 			super.endElement(uri, localName, qName);

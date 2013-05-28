@@ -28,6 +28,9 @@ public class MainActivity extends Activity implements OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        readXml = (Button)findViewById(R.id.button1);
+        writeXml = (Button)findViewById(R.id.button2);
+        
         readXml.setOnClickListener(this);
         writeXml.setOnClickListener(this);
     }
